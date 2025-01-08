@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kumbh_Sans } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const kumbhSans = Kumbh_Sans({
+  variable: "--font-kumbh-sans",
   subsets: ["latin"],
 });
 
@@ -25,9 +21,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${kumbhSans.className} antialiased bg-[#DD092F] overflow-x-hidden`}
       >
-        {children}
+        <main className="container max-w-[1024px] mx-auto">
+          {/* Pokeball 1 */}
+          <Image
+            src="/pokeball.png"
+            alt="Pokeball 1"
+            width={410}
+            height={410}
+            className="absolute top-0 -left-[8%] z-10 opacity-30"
+          />
+
+          <Image
+            src="/pokeball.png"
+            alt="Pokeball 2"
+            width={410}
+            height={410}
+            className="absolute -top-1/4 left-1/2 z-[-1] opacity-30"
+          />
+
+          <Image
+            src="/pokeball.png"
+            alt="Pokeball 3"
+            width={410}
+            height={410}
+            className="absolute top-1/2 -right-[10%] z-[-1] opacity-30"
+          />
+          {children}
+        </main>
       </body>
     </html>
   );
